@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		6AEAD5B32DDB445200974A03 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEAD5B22DDB444D00974A03 /* SplashScreenView.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		6AEAD5962DDB430100974A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		6AEAD5882DDB42FE00974A03 /* GirlsTripIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GirlsTripIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AEAD5952DDB430100974A03 /* GirlsTripIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GirlsTripIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AEAD59F2DDB430100974A03 /* GirlsTripIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GirlsTripIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AEAD5B22DDB444D00974A03 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		6AEAD57F2DDB42FE00974A03 = {
 			isa = PBXGroup;
 			children = (
-				6AEAD5B22DDB444D00974A03 /* SplashScreenView.swift */,
 				6AEAD58A2DDB42FE00974A03 /* GirlsTripIOS */,
 				6AEAD5982DDB430100974A03 /* GirlsTripIOSTests */,
 				6AEAD5A22DDB430100974A03 /* GirlsTripIOSUITests */,
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AEAD5B32DDB445200974A03 /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
