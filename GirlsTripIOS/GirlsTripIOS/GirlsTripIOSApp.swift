@@ -10,7 +10,7 @@ struct GirlsTripIOSApp: App {
             if showingSplash {
                 SplashScreenView()
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                             withAnimation {
                                 self.showingSplash = false
                             }
@@ -19,8 +19,41 @@ struct GirlsTripIOSApp: App {
             } else if !hasCompletedOnboarding {
                 OnboardingView()
             } else {
-                ContentView()
+                MainAppTabView()
             }
         }
+    }
+}
+
+struct MainAppTabView: View {
+    var body: some View {
+        TabView {
+            ContentView()
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+
+            // Example of another tab
+            Text("Past Trips Screen")
+                .tabItem {
+                    Label("Past Trips", systemImage: "suitcase.fill")
+                }
+
+            Text("Import Screen")
+                .tabItem {
+                    Label("Import", systemImage: "square.and.arrow.down.fill")
+                }
+
+            Text("Map Screen")
+                .tabItem {
+                    Label("Map", systemImage: "map.fill")
+                }
+
+            Text("#OOTD Screen")
+                .tabItem {
+                    Label("#OOTD", systemImage: "tshirt.fill")
+                }
+        }
+        // .accentColor(.yourAppAccentColor) 
     }
 }
