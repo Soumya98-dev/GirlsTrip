@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
+    @State private var showingPermissionsPriming = false
+
     var body: some View {
         ZStack {
             Color(red: 253/255, green: 223/255, blue: 170/255)
@@ -39,9 +42,11 @@ struct OnboardingView: View {
 
                 Spacer()
 
+
                 VStack(spacing: 15) {
                     Button(action: {
-                        print("Sign Up tapped")
+                        print("Sign Up tapped on OnboardingView")
+                        self.showingPermissionsPriming = true
                     }) {
                         Text("Sign up")
                             .font(.system(size: 20, weight: .semibold))
@@ -56,6 +61,7 @@ struct OnboardingView: View {
 
                     Button(action: {
                         print("Maybe later tapped")
+                        self.hasCompletedOnboarding = true
                     }) {
                         Text("Maybe later")
                             .font(.system(size: 20, weight: .semibold))
@@ -75,8 +81,16 @@ struct OnboardingView: View {
                 .padding(.bottom, 40)
             }
         }
+        .sheet(isPresented: $showingPermissionsPriming) {
+            PermissionsPrimingView {
+                print("Got it! tapped from PermissionsPrimingView")
+                self.showingPermissionsPriming = false
+                self.hasCompletedOnboarding = true
+            }
+        }
     }
 }
+
 
 struct FeatureView: View {
     let iconName: String
@@ -89,7 +103,6 @@ struct FeatureView: View {
                     .font(.system(size: 40))
                     .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
                     .padding(.bottom, 8)
-
 
                 Text(text)
                     .font(.system(size: 17, weight: .regular))
