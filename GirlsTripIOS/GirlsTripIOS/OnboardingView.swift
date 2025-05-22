@@ -59,22 +59,22 @@ struct OnboardingView: View {
                     }
                     .padding(.horizontal, 50)
 
-                    Button(action: {
-                        self.hasCompletedOnboarding = true
-                    }) {
-                        Text("Maybe later")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.gray)
-                            .padding(.vertical, 15)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(25)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 25)
-                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                            )
-                            .shadow(color: .gray.opacity(0.3), radius: 3, x: 0, y: 3)
-                    }
+//                    Button(action: {
+//                        self.hasCompletedOnboarding = true
+//                    }) {
+//                        Text("Maybe later")
+//                            .font(.system(size: 20, weight: .semibold))
+//                            .foregroundColor(.gray)
+//                            .padding(.vertical, 15)
+//                            .frame(maxWidth: .infinity)
+//                            .background(Color.white.opacity(0.8))
+//                            .cornerRadius(25)
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 25)
+//                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+//                            )
+//                            .shadow(color: .gray.opacity(0.3), radius: 3, x: 0, y: 3)
+//                    }
                     .padding(.horizontal, 50)
                 }
                 .padding(.bottom, 40)
