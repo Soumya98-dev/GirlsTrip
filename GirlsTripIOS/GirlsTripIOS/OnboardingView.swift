@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
     @State private var showingPermissionsPriming = false
+    @State private var showingFullNameEntry = false
 
     var body: some View {
         ZStack {
@@ -41,7 +42,6 @@ struct OnboardingView: View {
                 )
 
                 Spacer()
-
 
                 VStack(spacing: 15) {
                     Button(action: {
@@ -85,12 +85,21 @@ struct OnboardingView: View {
             PermissionsPrimingView {
                 print("Got it! tapped from PermissionsPrimingView")
                 self.showingPermissionsPriming = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.showingFullNameEntry = true
+                }
+            }
+        }
+        .sheet(isPresented: $showingFullNameEntry) {
+            FullNameEntryView { firstName, lastName in
+                print("Next tapped with First Name: \(firstName), Last Name: \(lastName)")
+
+                self.showingFullNameEntry = false
                 self.hasCompletedOnboarding = true
             }
         }
     }
 }
-
 
 struct FeatureView: View {
     let iconName: String
