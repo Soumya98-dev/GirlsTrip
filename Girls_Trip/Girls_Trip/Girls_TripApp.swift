@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct GirlsTripIOSApp: App {
+struct Girls_TripApp: App {
     @State private var showingSplash = true
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
 

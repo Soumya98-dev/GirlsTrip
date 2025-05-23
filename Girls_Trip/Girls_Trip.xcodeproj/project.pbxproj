@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		6AEAD5962DDB430100974A03 /* PBXContainerItemProxy */ = {
+		6A6168CE2DE0C74C00E30602 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6AEAD5802DDB42FE00974A03 /* Project object */;
+			containerPortal = 6A6168B82DE0C74B00E30602 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6AEAD5872DDB42FE00974A03;
-			remoteInfo = GirlsTripIOS;
+			remoteGlobalIDString = 6A6168BF2DE0C74B00E30602;
+			remoteInfo = Girls_Trip;
 		};
-		6AEAD5A02DDB430100974A03 /* PBXContainerItemProxy */ = {
+		6A6168D82DE0C74C00E30602 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6AEAD5802DDB42FE00974A03 /* Project object */;
+			containerPortal = 6A6168B82DE0C74B00E30602 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6AEAD5872DDB42FE00974A03;
-			remoteInfo = GirlsTripIOS;
+			remoteGlobalIDString = 6A6168BF2DE0C74B00E30602;
+			remoteInfo = Girls_Trip;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6AEAD5882DDB42FE00974A03 /* GirlsTripIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GirlsTripIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AEAD5952DDB430100974A03 /* GirlsTripIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GirlsTripIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AEAD59F2DDB430100974A03 /* GirlsTripIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GirlsTripIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6168C02DE0C74B00E30602 /* Girls_Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Girls_Trip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6168CD2DE0C74C00E30602 /* Girls_TripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Girls_TripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6168D72DE0C74C00E30602 /* Girls_TripUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Girls_TripUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6AEAD58A2DDB42FE00974A03 /* GirlsTripIOS */ = {
+		6A6168C22DE0C74B00E30602 /* Girls_Trip */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GirlsTripIOS;
+			path = Girls_Trip;
 			sourceTree = "<group>";
 		};
-		6AEAD5982DDB430100974A03 /* GirlsTripIOSTests */ = {
+		6A6168D02DE0C74C00E30602 /* Girls_TripTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GirlsTripIOSTests;
+			path = Girls_TripTests;
 			sourceTree = "<group>";
 		};
-		6AEAD5A22DDB430100974A03 /* GirlsTripIOSUITests */ = {
+		6A6168DA2DE0C74C00E30602 /* Girls_TripUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GirlsTripIOSUITests;
+			path = Girls_TripUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6AEAD5852DDB42FE00974A03 /* Frameworks */ = {
+		6A6168BD2DE0C74B00E30602 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD5922DDB430100974A03 /* Frameworks */ = {
+		6A6168CA2DE0C74C00E30602 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD59C2DDB430100974A03 /* Frameworks */ = {
+		6A6168D42DE0C74C00E30602 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6AEAD57F2DDB42FE00974A03 = {
+		6A6168B72DE0C74B00E30602 = {
 			isa = PBXGroup;
 			children = (
-				6AEAD58A2DDB42FE00974A03 /* GirlsTripIOS */,
-				6AEAD5982DDB430100974A03 /* GirlsTripIOSTests */,
-				6AEAD5A22DDB430100974A03 /* GirlsTripIOSUITests */,
-				6AEAD5892DDB42FE00974A03 /* Products */,
+				6A6168C22DE0C74B00E30602 /* Girls_Trip */,
+				6A6168D02DE0C74C00E30602 /* Girls_TripTests */,
+				6A6168DA2DE0C74C00E30602 /* Girls_TripUITests */,
+				6A6168C12DE0C74B00E30602 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6AEAD5892DDB42FE00974A03 /* Products */ = {
+		6A6168C12DE0C74B00E30602 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AEAD5882DDB42FE00974A03 /* GirlsTripIOS.app */,
-				6AEAD5952DDB430100974A03 /* GirlsTripIOSTests.xctest */,
-				6AEAD59F2DDB430100974A03 /* GirlsTripIOSUITests.xctest */,
+				6A6168C02DE0C74B00E30602 /* Girls_Trip.app */,
+				6A6168CD2DE0C74C00E30602 /* Girls_TripTests.xctest */,
+				6A6168D72DE0C74C00E30602 /* Girls_TripUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AEAD5872DDB42FE00974A03 /* GirlsTripIOS */ = {
+		6A6168BF2DE0C74B00E30602 /* Girls_Trip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AEAD5A92DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOS" */;
+			buildConfigurationList = 6A6168E12DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_Trip" */;
 			buildPhases = (
-				6AEAD5842DDB42FE00974A03 /* Sources */,
-				6AEAD5852DDB42FE00974A03 /* Frameworks */,
-				6AEAD5862DDB42FE00974A03 /* Resources */,
+				6A6168BC2DE0C74B00E30602 /* Sources */,
+				6A6168BD2DE0C74B00E30602 /* Frameworks */,
+				6A6168BE2DE0C74B00E30602 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				6AEAD58A2DDB42FE00974A03 /* GirlsTripIOS */,
+				6A6168C22DE0C74B00E30602 /* Girls_Trip */,
 			);
-			name = GirlsTripIOS;
+			name = Girls_Trip;
 			packageProductDependencies = (
 			);
-			productName = GirlsTripIOS;
-			productReference = 6AEAD5882DDB42FE00974A03 /* GirlsTripIOS.app */;
+			productName = Girls_Trip;
+			productReference = 6A6168C02DE0C74B00E30602 /* Girls_Trip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6AEAD5942DDB430100974A03 /* GirlsTripIOSTests */ = {
+		6A6168CC2DE0C74C00E30602 /* Girls_TripTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AEAD5AC2DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOSTests" */;
+			buildConfigurationList = 6A6168E42DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_TripTests" */;
 			buildPhases = (
-				6AEAD5912DDB430100974A03 /* Sources */,
-				6AEAD5922DDB430100974A03 /* Frameworks */,
-				6AEAD5932DDB430100974A03 /* Resources */,
+				6A6168C92DE0C74C00E30602 /* Sources */,
+				6A6168CA2DE0C74C00E30602 /* Frameworks */,
+				6A6168CB2DE0C74C00E30602 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6AEAD5972DDB430100974A03 /* PBXTargetDependency */,
+				6A6168CF2DE0C74C00E30602 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				6AEAD5982DDB430100974A03 /* GirlsTripIOSTests */,
+				6A6168D02DE0C74C00E30602 /* Girls_TripTests */,
 			);
-			name = GirlsTripIOSTests;
+			name = Girls_TripTests;
 			packageProductDependencies = (
 			);
-			productName = GirlsTripIOSTests;
-			productReference = 6AEAD5952DDB430100974A03 /* GirlsTripIOSTests.xctest */;
+			productName = Girls_TripTests;
+			productReference = 6A6168CD2DE0C74C00E30602 /* Girls_TripTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6AEAD59E2DDB430100974A03 /* GirlsTripIOSUITests */ = {
+		6A6168D62DE0C74C00E30602 /* Girls_TripUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AEAD5AF2DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOSUITests" */;
+			buildConfigurationList = 6A6168E72DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_TripUITests" */;
 			buildPhases = (
-				6AEAD59B2DDB430100974A03 /* Sources */,
-				6AEAD59C2DDB430100974A03 /* Frameworks */,
-				6AEAD59D2DDB430100974A03 /* Resources */,
+				6A6168D32DE0C74C00E30602 /* Sources */,
+				6A6168D42DE0C74C00E30602 /* Frameworks */,
+				6A6168D52DE0C74C00E30602 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6AEAD5A12DDB430100974A03 /* PBXTargetDependency */,
+				6A6168D92DE0C74C00E30602 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				6AEAD5A22DDB430100974A03 /* GirlsTripIOSUITests */,
+				6A6168DA2DE0C74C00E30602 /* Girls_TripUITests */,
 			);
-			name = GirlsTripIOSUITests;
+			name = Girls_TripUITests;
 			packageProductDependencies = (
 			);
-			productName = GirlsTripIOSUITests;
-			productReference = 6AEAD59F2DDB430100974A03 /* GirlsTripIOSUITests.xctest */;
+			productName = Girls_TripUITests;
+			productReference = 6A6168D72DE0C74C00E30602 /* Girls_TripUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6AEAD5802DDB42FE00974A03 /* Project object */ = {
+		6A6168B82DE0C74B00E30602 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					6AEAD5872DDB42FE00974A03 = {
+					6A6168BF2DE0C74B00E30602 = {
 						CreatedOnToolsVersion = 16.3;
 					};
-					6AEAD5942DDB430100974A03 = {
+					6A6168CC2DE0C74C00E30602 = {
 						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 6AEAD5872DDB42FE00974A03;
+						TestTargetID = 6A6168BF2DE0C74B00E30602;
 					};
-					6AEAD59E2DDB430100974A03 = {
+					6A6168D62DE0C74C00E30602 = {
 						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 6AEAD5872DDB42FE00974A03;
+						TestTargetID = 6A6168BF2DE0C74B00E30602;
 					};
 				};
 			};
-			buildConfigurationList = 6AEAD5832DDB42FE00974A03 /* Build configuration list for PBXProject "GirlsTripIOS" */;
+			buildConfigurationList = 6A6168BB2DE0C74B00E30602 /* Build configuration list for PBXProject "Girls_Trip" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 6AEAD57F2DDB42FE00974A03;
+			mainGroup = 6A6168B72DE0C74B00E30602;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 6AEAD5892DDB42FE00974A03 /* Products */;
+			productRefGroup = 6A6168C12DE0C74B00E30602 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AEAD5872DDB42FE00974A03 /* GirlsTripIOS */,
-				6AEAD5942DDB430100974A03 /* GirlsTripIOSTests */,
-				6AEAD59E2DDB430100974A03 /* GirlsTripIOSUITests */,
+				6A6168BF2DE0C74B00E30602 /* Girls_Trip */,
+				6A6168CC2DE0C74C00E30602 /* Girls_TripTests */,
+				6A6168D62DE0C74C00E30602 /* Girls_TripUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6AEAD5862DDB42FE00974A03 /* Resources */ = {
+		6A6168BE2DE0C74B00E30602 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD5932DDB430100974A03 /* Resources */ = {
+		6A6168CB2DE0C74C00E30602 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD59D2DDB430100974A03 /* Resources */ = {
+		6A6168D52DE0C74C00E30602 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6AEAD5842DDB42FE00974A03 /* Sources */ = {
+		6A6168BC2DE0C74B00E30602 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD5912DDB430100974A03 /* Sources */ = {
+		6A6168C92DE0C74C00E30602 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6AEAD59B2DDB430100974A03 /* Sources */ = {
+		6A6168D32DE0C74C00E30602 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6AEAD5972DDB430100974A03 /* PBXTargetDependency */ = {
+		6A6168CF2DE0C74C00E30602 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6AEAD5872DDB42FE00974A03 /* GirlsTripIOS */;
-			targetProxy = 6AEAD5962DDB430100974A03 /* PBXContainerItemProxy */;
+			target = 6A6168BF2DE0C74B00E30602 /* Girls_Trip */;
+			targetProxy = 6A6168CE2DE0C74C00E30602 /* PBXContainerItemProxy */;
 		};
-		6AEAD5A12DDB430100974A03 /* PBXTargetDependency */ = {
+		6A6168D92DE0C74C00E30602 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6AEAD5872DDB42FE00974A03 /* GirlsTripIOS */;
-			targetProxy = 6AEAD5A02DDB430100974A03 /* PBXContainerItemProxy */;
+			target = 6A6168BF2DE0C74B00E30602 /* Girls_Trip */;
+			targetProxy = 6A6168D82DE0C74C00E30602 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		6AEAD5A72DDB430100974A03 /* Debug */ = {
+		6A6168DF2DE0C74C00E30602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,6 +304,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -332,7 +333,7 @@
 			};
 			name = Debug;
 		};
-		6AEAD5A82DDB430100974A03 /* Release */ = {
+		6A6168E02DE0C74C00E30602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -367,6 +368,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -388,7 +390,7 @@
 			};
 			name = Release;
 		};
-		6AEAD5AA2DDB430100974A03 /* Debug */ = {
+		6A6168E22DE0C74C00E30602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -398,8 +400,6 @@
 				DEVELOPMENT_TEAM = 52P33LWDZM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Girls Trip needs access to your camera to enable photo uploads for your trip itineraries and mood boards.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -418,7 +418,7 @@
 			};
 			name = Debug;
 		};
-		6AEAD5AB2DDB430100974A03 /* Release */ = {
+		6A6168E32DE0C74C00E30602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -428,8 +428,6 @@
 				DEVELOPMENT_TEAM = 52P33LWDZM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Girls Trip needs access to your camera to enable photo uploads for your trip itineraries and mood boards.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -440,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-Trip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,114 +446,118 @@
 			};
 			name = Release;
 		};
-		6AEAD5AD2DDB430100974A03 /* Debug */ = {
+		6A6168E52DE0C74C00E30602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-TripTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GirlsTripIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GirlsTripIOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Girls_Trip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Girls_Trip";
 			};
 			name = Debug;
 		};
-		6AEAD5AE2DDB430100974A03 /* Release */ = {
+		6A6168E62DE0C74C00E30602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOSTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-TripTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GirlsTripIOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GirlsTripIOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Girls_Trip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Girls_Trip";
 			};
 			name = Release;
 		};
-		6AEAD5B02DDB430100974A03 /* Debug */ = {
+		6A6168E82DE0C74C00E30602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOSUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-TripUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GirlsTripIOS;
+				TEST_TARGET_NAME = Girls_Trip;
 			};
 			name = Debug;
 		};
-		6AEAD5B12DDB430100974A03 /* Release */ = {
+		6A6168E92DE0C74C00E30602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 52P33LWDZM;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.soumya.GirlsTripIOSUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "deep-dev.Girls-TripUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GirlsTripIOS;
+				TEST_TARGET_NAME = Girls_Trip;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AEAD5832DDB42FE00974A03 /* Build configuration list for PBXProject "GirlsTripIOS" */ = {
+		6A6168BB2DE0C74B00E30602 /* Build configuration list for PBXProject "Girls_Trip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AEAD5A72DDB430100974A03 /* Debug */,
-				6AEAD5A82DDB430100974A03 /* Release */,
+				6A6168DF2DE0C74C00E30602 /* Debug */,
+				6A6168E02DE0C74C00E30602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AEAD5A92DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOS" */ = {
+		6A6168E12DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_Trip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AEAD5AA2DDB430100974A03 /* Debug */,
-				6AEAD5AB2DDB430100974A03 /* Release */,
+				6A6168E22DE0C74C00E30602 /* Debug */,
+				6A6168E32DE0C74C00E30602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AEAD5AC2DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOSTests" */ = {
+		6A6168E42DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_TripTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AEAD5AD2DDB430100974A03 /* Debug */,
-				6AEAD5AE2DDB430100974A03 /* Release */,
+				6A6168E52DE0C74C00E30602 /* Debug */,
+				6A6168E62DE0C74C00E30602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AEAD5AF2DDB430100974A03 /* Build configuration list for PBXNativeTarget "GirlsTripIOSUITests" */ = {
+		6A6168E72DE0C74C00E30602 /* Build configuration list for PBXNativeTarget "Girls_TripUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AEAD5B02DDB430100974A03 /* Debug */,
-				6AEAD5B12DDB430100974A03 /* Release */,
+				6A6168E82DE0C74C00E30602 /* Debug */,
+				6A6168E92DE0C74C00E30602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6AEAD5802DDB42FE00974A03 /* Project object */;
+	rootObject = 6A6168B82DE0C74B00E30602 /* Project object */;
 }

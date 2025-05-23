@@ -1,13 +1,13 @@
 //
-//  GirlsTripIOSUITests.swift
-//  GirlsTripIOSUITests
+//  Girls_TripUITests.swift
+//  Girls_TripUITests
 //
-//  Created by Soumyadeep Chatterjee on 5/19/25.
+//  Created by Soumyadeep Chatterjee on 5/23/25.
 //
 
 import XCTest
 
-final class GirlsTripIOSUITests: XCTestCase {
+final class Girls_TripUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

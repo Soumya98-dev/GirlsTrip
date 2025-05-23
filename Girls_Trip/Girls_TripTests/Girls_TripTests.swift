@@ -1,14 +1,14 @@
 //
-//  GirlsTripIOSTests.swift
-//  GirlsTripIOSTests
+//  Girls_TripTests.swift
+//  Girls_TripTests
 //
-//  Created by Soumyadeep Chatterjee on 5/19/25.
+//  Created by Soumyadeep Chatterjee on 5/23/25.
 //
 
 import Testing
-@testable import GirlsTripIOS
+@testable import Girls_Trip
 
-struct GirlsTripIOSTests {
+struct Girls_TripTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

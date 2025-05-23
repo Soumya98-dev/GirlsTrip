@@ -1,13 +1,13 @@
 //
-//  GirlsTripIOSUITestsLaunchTests.swift
-//  GirlsTripIOSUITests
+//  Girls_TripUITestsLaunchTests.swift
+//  Girls_TripUITests
 //
-//  Created by Soumyadeep Chatterjee on 5/19/25.
+//  Created by Soumyadeep Chatterjee on 5/23/25.
 //
 
 import XCTest
 
-final class GirlsTripIOSUITestsLaunchTests: XCTestCase {
+final class Girls_TripUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
