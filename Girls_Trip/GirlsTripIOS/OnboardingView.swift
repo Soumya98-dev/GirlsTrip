@@ -18,7 +18,7 @@ struct OnboardingView: View {
 
             VStack(spacing: 30) {
                 Spacer()
-                Text("Welcome to\nGirls Trip!") // ... and other intro content
+                Text("Welcome to\nGirls Trip!")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
                     .foregroundColor(.black)
                     .multilineTextAlignment(.center)
@@ -58,23 +58,6 @@ struct OnboardingView: View {
                             .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 5)
                     }
                     .padding(.horizontal, 50)
-
-//                    Button(action: {
-//                        self.hasCompletedOnboarding = true
-//                    }) {
-//                        Text("Maybe later")
-//                            .font(.system(size: 20, weight: .semibold))
-//                            .foregroundColor(.gray)
-//                            .padding(.vertical, 15)
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.white.opacity(0.8))
-//                            .cornerRadius(25)
-//                            .overlay(
-//                                RoundedRectangle(cornerRadius: 25)
-//                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-//                            )
-//                            .shadow(color: .gray.opacity(0.3), radius: 3, x: 0, y: 3)
-//                    }
                     .padding(.horizontal, 50)
                 }
                 .padding(.bottom, 40)
