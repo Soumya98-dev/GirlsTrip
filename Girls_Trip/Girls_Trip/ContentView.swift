@@ -13,6 +13,14 @@ struct SafetyHubItem: Identifiable {
     let iconName: String
 }
 
+struct EmbassyInfo: Identifiable {
+    let id = UUID()
+    let city: String
+    let imageName: String
+    let address: String
+    let phone: String
+}
+
 struct ContentView: View {
     let moodboards: [MoodboardItem] = [
         MoodboardItem(title: "Outfits", imageName: "outfits_moodboard"),
@@ -64,7 +72,6 @@ struct ContentView: View {
             }
         }
     }
-
 
     @ViewBuilder
     private func createMyTripSection() -> some View {
@@ -135,7 +142,14 @@ struct ContentView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(safetyHubItems) { item in
-                        SafetyHubCardView(item: item)
+                        if item.title == "Embassies" {
+                            NavigationLink(destination: EmbassiesView()) {
+                                SafetyHubCardView(item: item)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        } else {
+                            SafetyHubCardView(item: item)
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -144,7 +158,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 struct MoodboardCardView: View {
     let item: MoodboardItem
@@ -169,7 +182,6 @@ struct MoodboardCardView: View {
                 )
                 .cornerRadius(12)
 
-
             Text(item.title)
                 .font(.headline)
                 .padding(.top, 5)
@@ -193,7 +205,6 @@ struct SafetyHubCardView: View {
                 .padding(.bottom, 8)
                 .frame(width: 60, height: 60)
 
-
             Text(item.title)
                 .font(.caption).bold()
                 .multilineTextAlignment(.center)
@@ -210,6 +221,100 @@ struct SafetyHubCardView: View {
     }
 }
 
+
+struct EmbassiesView: View {
+    let embassies: [EmbassyInfo] = [
+        EmbassyInfo(city: "Mexico City", imageName: "mexico_city_embassy", address: "Paseo de la Reforma 305\nColonia Cuauhtémoc\n06500 CDMX", phone: "(55) 5080-2000"),
+        EmbassyInfo(city: "Dominican Republic", imageName: "dominican_republic_embassy", address: "Av. República de Colombia #57\nSanto Domingo\nDominican Republic", phone: "(809) 567-7775"),
+        EmbassyInfo(city: "United Kingdom", imageName: "uk_embassy", address: "33 Nine Elms Lane\nLondon\nSW11 7US", phone: "[44] (0)20-7499-9000"),
+        EmbassyInfo(city: "Canada", imageName: "canada_embassy", address: "490 Sussex Drive\nOttawa, Ontario, K1N 1G8,\nCANADA", phone: "(613) 688-5335"),
+        EmbassyInfo(city: "Italy", imageName: "italy_embassy", address: "U.S. Embassy Rome\nVia Vittorio Veneto 121\n00187 Roma", phone: "+39 06.46741"),
+        EmbassyInfo(city: "France", imageName: "france_embassy", address: "2 avenue Gabriel\n75008 Paris, France\n\nConsular Services:\n4 avenue Gabriel\n75008 Paris, France", phone: "+33 143122222")
+    ]
+    
+    let placeholderEmbassyImageName = "building.fill"
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("US Embassies")
+                    .font(.title2).bold()
+                    .padding(.horizontal)
+                Text("Most Popular destinations")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.horizontal)
+                    .padding(.bottom, 5)
+
+                LazyVStack(alignment: .leading, spacing: 0) {
+                    ForEach(embassies) { embassy in
+                        EmbassyRow(embassy: embassy, placeholderImageName: placeholderEmbassyImageName)
+                        if embassy.id != embassies.last?.id {
+                            Divider().padding(.leading, 111)
+                        }
+                    }
+                }
+                
+                Button(action: {
+                    print("View more destinations tapped")
+                }) {
+                    HStack {
+                        Spacer()
+                        (Text("Don't see your destination? ")
+                            .font(.callout)
+                            .foregroundColor(Color(UIColor.label))
+                        + Text("View more")
+                            .font(.callout).bold()
+                            .foregroundColor(Color(red: 255/255, green: 135/255, blue: 0/255)))
+                        Spacer()
+                    }
+                    .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(UIColor.systemGray5))
+                    .cornerRadius(10)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 20)
+            }
+            .padding(.top)
+        }
+        .navigationTitle("Embassies")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
+    }
+}
+
+struct EmbassyRow: View {
+    let embassy: EmbassyInfo
+    let placeholderImageName: String
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 15) {
+            Image(uiImage: UIImage(named: embassy.imageName) ?? UIImage(systemName: placeholderImageName)!)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 80, height: 80)
+                .cornerRadius(10)
+                .clipped()
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(embassy.city)
+                    .font(.headline).bold()
+                Text(embassy.address)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text("Phone: \(embassy.phone)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
@@ -220,9 +325,16 @@ struct RoundedCorner: Shape {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct EmbassiesView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            EmbassiesView()
+        }
     }
 }
