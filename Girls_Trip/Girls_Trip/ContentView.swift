@@ -4,7 +4,7 @@ struct MoodboardItem: Identifiable {
     let id = UUID()
     let title: String
     let imageName: String
-    let highlightColor: Color = Color(red: 255/255, green: 165/255, blue: 0/255) // Orange color
+    let highlightColor: Color = Color(red: 255/255, green: 165/255, blue: 0/255)
 }
 
 struct SafetyHubItem: Identifiable {
@@ -46,7 +46,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Girls Trip")
                         .font(.largeTitle).bold()
-                        .foregroundColor(Color(red: 255/255, green: 105/255, blue: 180/255)) // Pinkish color
+                        .foregroundColor(Color(red: 255/255, green: 105/255, blue: 180/255))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 15) {
@@ -62,8 +62,6 @@ struct ContentView: View {
                     .foregroundColor(.primary)
                 }
             }
-            //.navigationTitle("") // Use ToolbarItem for custom title view
-            //.navigationBarTitleDisplayMode(.inline) // Or .large
         }
     }
 
@@ -83,7 +81,7 @@ struct ContentView: View {
                     Spacer()
                     Image(systemName: "plus.circle.fill")
                         .font(.largeTitle)
-                        .foregroundColor(Color(red: 255/255, green: 165/255, blue: 0/255)) // Orange
+                        .foregroundColor(Color(red: 255/255, green: 165/255, blue: 0/255))
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -109,7 +107,7 @@ struct ContentView: View {
                     .font(.callout)
             }
             .padding(.horizontal)
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(moodboards) { item in
@@ -117,7 +115,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical, 5) // Padding for shadow visibility
+                .padding(.vertical, 5)
             }
         }
     }
