@@ -1,154 +1,132 @@
 import SwiftUI
-import AVFoundation
+import AuthenticationServices // Import this framework for Sign in with Apple
 
 struct OnboardingView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
-    @State private var showingPermissionsPriming = false
-    @State private var showingFullNameEntry = false
-    @State private var showingCameraPermissionRequest = false
-    @State private var showingFinalSetupInstructions = false // New state variable
-
-    @State private var userFirstName: String = ""
-    @State private var userLastName: String = ""
 
     var body: some View {
         ZStack {
+            // Background color
             Color(red: 253/255, green: 223/255, blue: 170/255)
                 .edgesIgnoringSafeArea(.all)
 
-            VStack(spacing: 30) {
+            VStack(spacing: 0) {
                 Spacer()
-                Text("Welcome to\nGirls Trip!")
-                    .font(.system(size: 36, weight: .bold, design: .rounded))
+                
+                // Welcome Text
+                Text("Welcome to Girls Trip!")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundColor(.black)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+                    .padding(.bottom, 30)
 
-                Text("The first travel companion app where you can:")
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                    .padding(.bottom, 20)
+                // Image Collage
+                imageCollage()
+                    .padding(.bottom, 40)
 
-                FeatureView(
-                    iconName: "list.bullet.clipboard.fill",
-                    text: "centralize individual and group travel itineraries"
-                )
-                FeatureView(
-                    iconName: "photo.on.rectangle.angled",
-                    text: "create mood boards and fun visuals for you trips"
-                )
-                FeatureView(
-                    iconName: "shield.checkmark.fill",
-                    text: "stay protected domestically and abroad with essential safety features"
-                )
+                // Feature List
+                VStack(alignment: .leading, spacing: 25) {
+                    FeatureRow(iconName: "list.bullet.clipboard.fill", text: "Centralize travel itinerary")
+                    FeatureRow(iconName: "photo.on.rectangle.angled", text: "Create moodboards for your trips")
+                    FeatureRow(iconName: "shield.checkmark.fill", text: "Stay protected with essential safety features")
+                }
+
                 Spacer()
-                VStack(spacing: 15) {
-                    Button(action: {
-                        self.showingPermissionsPriming = true
-                    }) {
-                        Text("Sign up")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.black)
-                            .padding(.vertical, 15)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white)
-                            .cornerRadius(25)
-                            .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 5)
-                    }
-                    .padding(.horizontal, 50)
-                    .padding(.horizontal, 50)
-                }
-                .padding(.bottom, 40)
-            } // End of main VStack
-        } // End of ZStack
-        .sheet(isPresented: $showingPermissionsPriming) {
-            PermissionsPrimingView {
-                self.showingPermissionsPriming = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                     self.showingFullNameEntry = true
-                }
-            }
-        }
-        .sheet(isPresented: $showingFullNameEntry) {
-            FullNameEntryView { firstName, lastName in
-                self.userFirstName = firstName
-                self.userLastName = lastName
-                self.showingFullNameEntry = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.showingCameraPermissionRequest = true
-                }
-            }
-        }
-        .sheet(isPresented: $showingCameraPermissionRequest) {
-            CameraPermissionRequestView(
-                onYesTapped: {
-                    self.showingCameraPermissionRequest = false
-                    requestCameraPermission { granted in
-                        if granted {
-                            print("Camera permission GRANTED by user.")
-                        } else {
-                            print("Camera permission DENIED by user.")
-                        }
-                        // Proceed to final setup instructions regardless of camera permission
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.showingFinalSetupInstructions = true
-                        }
-                    }
-                },
-                onNoTapped: {
-                    self.showingCameraPermissionRequest = false
-                    // User chose not to proceed with camera permission at this stage.
-                    // Still proceed to final setup instructions.
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.showingFinalSetupInstructions = true
-                    }
-                }
-            )
-        }
-        .sheet(isPresented: $showingFinalSetupInstructions) {
-            FinalSetupInstructionsView {
-                print("Enter Girls Trip tapped")
-                self.showingFinalSetupInstructions = false // Dismiss this sheet
-                self.hasCompletedOnboarding = true      // Mark onboarding as fully complete
-            }
-        }
-    } // End of body
+                
+                // Swoosh Heart
+                Image("swoosh_heart") // Use the name from your assets
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 30)
+                    .padding(.bottom, 15)
 
-    func requestCameraPermission(completion: @escaping (Bool) -> Void) {
-        // ... (requestCameraPermission function remains the same) ...
-        AVCaptureDevice.requestAccess(for: .video) { granted in
-            DispatchQueue.main.async {
-                completion(granted)
+                // Sign in with Apple Button
+                SignInWithAppleButton(
+                    onRequest: { request in
+                        request.requestedScopes = [.fullName, .email]
+                    },
+                    onCompletion: { result in
+                        switch result {
+                        case .success(let authResults):
+                            print("Authorization successful: \(authResults)")
+                            // Here you would typically handle the user's credentials
+                            // (e.g., save their name, email, user identifier)
+                            
+                            // For now, we'll just mark onboarding as complete
+                            self.hasCompletedOnboarding = true
+                            
+                        case .failure(let error):
+                            print("Authorization failed: \(error.localizedDescription)")
+                            // Handle the error (e.g., show an alert to the user)
+                        }
+                    }
+                )
+                .signInWithAppleButtonStyle(.black) // You can choose .black, .white, or .whiteOutline
+                .frame(height: 55)
+                .cornerRadius(100)
+                .padding(.horizontal, 40)
             }
+            .padding(.bottom, 50)
+            .padding(.top, 20)
         }
+    }
+    
+    // ViewBuilder for the image collage
+    @ViewBuilder
+    private func imageCollage() -> some View {
+        ZStack {
+            // Image 1 (Left)
+            Image("collage_image_1") // Use your asset name
+                .resizable().scaledToFill()
+                .frame(width: 130, height: 130)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(Color.pink, lineWidth: 2))
+                .rotationEffect(.degrees(-15))
+                .offset(x: -45, y: 15)
+
+            // Image 3 (Right)
+            Image("collage_image_3") // Use your asset name
+                .resizable().scaledToFill()
+                .frame(width: 140, height: 140)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(Color.purple, lineWidth: 2))
+                .rotationEffect(.degrees(8))
+                .offset(x: 50, y: 40)
+
+            // Image 2 (Top)
+            Image("collage_image_2") // Use your asset name
+                .resizable().scaledToFill()
+                .frame(width: 135, height: 135)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .overlay(RoundedRectangle(cornerRadius: 25.0).stroke(Color.blue, lineWidth: 2))
+                .rotationEffect(.degrees(10))
+                .offset(y: -30)
+        }
+        .frame(height: 250) // Give the ZStack a fixed height to manage layout
     }
 }
 
-struct FeatureView: View {
+// Reusable view for the feature list items
+struct FeatureRow: View {
     let iconName: String
     let text: String
 
     var body: some View {
-        HStack(spacing: 0) {
-            VStack {
-                 Image(systemName: iconName)
-                    .font(.system(size: 40))
-                    .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
-                    .padding(.bottom, 8)
-
-                Text(text)
-                    .font(.system(size: 17, weight: .regular))
-                    .foregroundColor(Color(red: 80/255, green: 80/255, blue: 80/255))
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: 280)
-            }
+        HStack(spacing: 20) {
+            Image(systemName: iconName)
+                .font(.system(size: 24, weight: .semibold))
+                .frame(width: 30)
+                .foregroundColor(.black)
+            
+            Text(text)
+                .font(.system(size: 16, weight: .medium, design: .rounded))
+                .foregroundColor(.black)
+            
+            Spacer()
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 10)
+        .padding(.horizontal, 40)
     }
 }
+
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
