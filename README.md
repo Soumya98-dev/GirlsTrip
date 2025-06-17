@@ -1,6 +1,3 @@
-Thought for a second
-
-````markdown
 # Girls Trip
 
 An all-in-one SwiftUI travel companion for planning, safety, and on-device translation. Walk through a beautiful onboarding flow, manage your profile and medical data, get essential embassy info, and translate on the fly—all in one place.
@@ -63,8 +60,6 @@ An all-in-one SwiftUI travel companion for planning, safety, and on-device trans
    git clone https://github.com/yourusername/Girls_Trip.git
    cd Girls_Trip
    ```
-````
-
 2. **Open** `Girls_Trip.xcodeproj` in Xcode
 3. **Ensure** all assets are in `Assets.xcassets`
 4. **Run** (⌘R) on your simulator or device
@@ -122,7 +117,3 @@ Girls_Trip/
 ## License
 
 Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
-
-```
-
-```
