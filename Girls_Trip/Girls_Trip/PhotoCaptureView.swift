@@ -1,22 +1,18 @@
 import SwiftUI
 
 struct PhotoCaptureView: View {
-    // State to control the visibility of the permission primer dialog
     @State private var showPermissionDialog = true
 
     var body: some View {
         ZStack {
-            // Main black background for the entire screen
             Color.black
                 .edgesIgnoringSafeArea(.all)
 
             VStack(spacing: 0) {
-                // Placeholder for Camera Preview or selected image
                 Rectangle()
                     .fill(Color.white)
-                    .aspectRatio(3/4, contentMode: .fit) // Common camera aspect ratio
+                    .aspectRatio(3/4, contentMode: .fit)
                     .overlay(
-                        // Show the permission dialog if the state is true
                         Group {
                             if showPermissionDialog {
                                 PhotoLibraryPermissionDialog(isPresented: $showPermissionDialog)
@@ -24,19 +20,16 @@ struct PhotoCaptureView: View {
                         }
                     )
                 
-                Spacer() // Pushes the bottom bar down
+                Spacer()
 
-                // Bottom Toolbar with camera controls
                 bottomToolbar()
             }
         }
     }
 
-    // ViewBuilder for the bottom control bar
     @ViewBuilder
     private func bottomToolbar() -> some View {
         HStack(spacing: 60) {
-            // Button to open Photo Library
             Button(action: {
                 // TODO: Add action to open PHPickerViewController
                 print("Photo Library Tapped")
@@ -45,7 +38,6 @@ struct PhotoCaptureView: View {
                     .font(.system(size: 28, weight: .semibold))
             }
 
-            // Shutter Button
             Button(action: {
                 // TODO: Add action to capture photo
                 print("Shutter Tapped")
@@ -61,7 +53,6 @@ struct PhotoCaptureView: View {
                 }
             }
 
-            // Button to flip camera
             Button(action: {
                 // TODO: Add action to flip between front/back camera
                 print("Flip Camera Tapped")
@@ -77,7 +68,6 @@ struct PhotoCaptureView: View {
     }
 }
 
-// A custom view that mimics the iOS Photo Library permission dialog
 struct PhotoLibraryPermissionDialog: View {
     @Binding var isPresented: Bool
 
@@ -98,9 +88,7 @@ struct PhotoLibraryPermissionDialog: View {
 
             Divider()
 
-            // Button for "Limit Access"
             Button(action: {
-                // This would trigger the actual permission request
                 isPresented = false
                 // TODO: Request limited photo library access
             }) {
@@ -111,22 +99,19 @@ struct PhotoLibraryPermissionDialog: View {
 
             Divider()
 
-            // Button for "Allow Full Access"
             Button(action: {
                 isPresented = false
                 // TODO: Request full photo library access
             }) {
                 Text("Allow Full Access")
-                    .font(.system(size: 17, weight: .semibold)) // Often bold for primary action
+                    .font(.system(size: 17, weight: .semibold))
                     .frame(maxWidth: .infinity, minHeight: 44)
             }
             
             Divider()
 
-            // Button for "Don't Allow"
             Button(action: {
                 isPresented = false
-                // Handle denial
             }) {
                 Text("Don't Allow")
                     .font(.system(size: 17))
@@ -134,7 +119,7 @@ struct PhotoLibraryPermissionDialog: View {
             }
         }
         .frame(width: 270)
-        .background(.thinMaterial) // This gives the nice blurred background effect
+        .background(.thinMaterial) 
         .cornerRadius(14)
         .shadow(radius: 10)
     }

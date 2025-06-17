@@ -4,12 +4,12 @@ struct SplashScreenView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Image("beachBackground")
+                Image("Pinterest")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                Image("appLogo")
+                Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geometry.size.width * 0.7, height: geometry.size.height * 0.3)

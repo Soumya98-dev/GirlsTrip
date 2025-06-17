@@ -1,10 +1,11 @@
 import SwiftUI
 
+// MARK: — Data Models
+
 struct MoodboardItem: Identifiable {
     let id = UUID()
     let title: String
     let imageName: String
-    let highlightColor: Color = Color(red: 255/255, green: 165/255, blue: 0/255)
 }
 
 struct SafetyHubItem: Identifiable {
@@ -13,328 +14,255 @@ struct SafetyHubItem: Identifiable {
     let iconName: String
 }
 
-struct EmbassyInfo: Identifiable {
-    let id = UUID()
-    let city: String
-    let imageName: String
-    let address: String
-    let phone: String
-}
+// MARK: — Main ContentView with TabView
 
 struct ContentView: View {
-    let moodboards: [MoodboardItem] = [
-        MoodboardItem(title: "Outfits", imageName: "outfits_moodboard"),
-        MoodboardItem(title: "Food Moods", imageName: "food_moodboard"),
+    @State private var selectedTab = 0
+
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+
+        let selectedColor = UIColor(red: 255/255, green: 105/255, blue: 180/255, alpha: 1)
+        appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: selectedColor]
+
+        let normalColor = UIColor.gray
+        appearance.stackedLayoutAppearance.normal.iconColor = normalColor
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: normalColor]
+
+        UITabBar.appearance().standardAppearance    = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: selectedTab == 0 ? "house.fill" : "house")
+                }
+                .tag(0)
+
+            Text("#OOTD Screen")
+                .tabItem { Label("#OOTD", systemImage: "camera") }
+                .tag(1)
+
+            Text("Import Screen")
+                .tabItem { Label("Import", systemImage: "square.and.arrow.down") }
+                .tag(2)
+
+            Text("Map Screen")
+                .tabItem { Label("Map", systemImage: "paperplane") }
+                .tag(3)
+
+            Text("Profile Screen")
+                .tabItem { Label("Profile", systemImage: "person.crop.circle") }
+                .tag(4)
+        }
+    }
+}
+
+// MARK: — Home Screen
+
+struct HomeView: View {
+    @State private var searchText = ""
+
+    private let moodboards = [
+        MoodboardItem(title: "Outfits",       imageName: "outfits_moodboard"),
+        MoodboardItem(title: "Food Moods",    imageName: "food_moodboard"),
         MoodboardItem(title: "Packing lists", imageName: "packing_moodboard")
     ]
 
-    let safetyHubItems: [SafetyHubItem] = [
-        SafetyHubItem(title: "Embassies", iconName: "building.columns.fill"),
-        SafetyHubItem(title: "Safe Areas", iconName: "heart.fill"),
-        SafetyHubItem(title: "Passport Info", iconName: "doc.text.fill")
+    private let safetyItems = [
+        SafetyHubItem(title: "Embassies",       iconName: "building.columns"),
+        SafetyHubItem(title: "STEP Enrollment", iconName: "doc.text"),
+        SafetyHubItem(title: "Translator",      iconName: "message")
     ]
+
+    private let btnYellow     = Color(red: 254/255, green: 228/255, blue: 154/255)
+    private let bgColor       = Color(UIColor.systemGray6)
+    private let navBarBG      = Color.white.opacity(0.8)
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 25) {
-                    createMyTripSection()
-                        .padding(.horizontal)
-
-                    myMoodboardsSection()
-
-                    safetyHubSection()
-
-                    Spacer()
+                VStack(spacing: 30) {
+                    searchBar
+                    createTripCard
+                    moodboardsSection
+                    safetyHubSection
                 }
-                .padding(.vertical)
+                .padding(.top)
+                .padding(.bottom, 40)
             }
-            .background(Color(UIColor.systemGray6).edgesIgnoringSafeArea(.bottom))
+            .background(bgColor)
+            .ignoresSafeArea(edges: .bottom)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Girls Trip")
-                        .font(.largeTitle).bold()
-                        .foregroundColor(Color(red: 255/255, green: 105/255, blue: 180/255))
+                ToolbarItem(placement: .principal) {
+                    Image("gtverticallogo")
+                        .resizable()
+                        .renderingMode(.original)
+                        .scaledToFit()
+                        .frame(height: 32)
+                        .accessibilityLabel("Girls Trip")
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 15) {
-                        Button(action: { /* Notification action */ }) {
-                            Image(systemName: "bell")
-                                .font(.title2)
-                        }
-                        Button(action: { /* Menu action */ }) {
-                            Image(systemName: "line.3.horizontal")
-                                .font(.title2)
-                        }
+                    Button { /* TODO */ } label: {
+                        Image(systemName: "bell")
+                            .font(.title2)
+                            .foregroundColor(.black)
                     }
-                    .foregroundColor(.primary)
                 }
             }
+            .toolbarBackground(navBarBG, for: .navigationBar)
+            .toolbarBackground(.visible,  for: .navigationBar)
         }
     }
 
-    @ViewBuilder
-    private func createMyTripSection() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Create My Trip")
-                .font(.title2).bold()
+    // MARK: — Subviews
 
-            Button(action: { /* Action for creating a trip */ }) {
-                HStack {
-                    Text("Upload your flight, lodging and activities.")
-                        .font(.headline)
-                        .foregroundColor(.primary.opacity(0.8))
-                        .multilineTextAlignment(.leading)
-                    Spacer()
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(Color(red: 255/255, green: 165/255, blue: 0/255))
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.white)
-                .cornerRadius(15)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(Color(red: 255/255, green: 165/255, blue: 0/255), lineWidth: 2)
-                )
-                .shadow(radius: 3)
-            }
+    private var searchBar: some View {
+        HStack {
+            Image(systemName: "magnifyingglass").foregroundColor(.gray)
+            TextField("Search my trips", text: $searchText)
         }
-    }
-
-    @ViewBuilder
-    private func myMoodboardsSection() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Text("My Moodboards")
-                    .font(.title2).bold()
-                Spacer()
-                Button("View all >") { /* Action for viewing all moodboards */ }
-                    .font(.callout)
-            }
-            .padding(.horizontal)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 15) {
-                    ForEach(moodboards) { item in
-                        MoodboardCardView(item: item)
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.vertical, 5)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func safetyHubSection() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Text("Safety Hub")
-                    .font(.title2).bold()
-                Spacer()
-                Button("View all >") { /* Action for viewing all safety items */ }
-                    .font(.callout)
-            }
-            .padding(.horizontal)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 15) {
-                    ForEach(safetyHubItems) { item in
-                        if item.title == "Embassies" {
-                            NavigationLink(destination: EmbassiesView()) {
-                                SafetyHubCardView(item: item)
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        } else {
-                            SafetyHubCardView(item: item)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.vertical, 5)
-            }
-        }
-    }
-}
-
-struct MoodboardCardView: View {
-    let item: MoodboardItem
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Image(item.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 200)
-                .overlay(
-                    VStack {
-                        Spacer()
-                        HStack {
-                            item.highlightColor
-                                .frame(width: 75, height: 60)
-                                .clipShape(RoundedCorner(radius: 20, corners: [.topRight, .bottomRight]))
-                                .opacity(0.8)
-                            Spacer()
-                        }
-                    }
-                )
-                .cornerRadius(12)
-
-            Text(item.title)
-                .font(.headline)
-                .padding(.top, 5)
-        }
-        .frame(width: 150)
-        .padding(8)
+        .padding()
         .background(Color.white)
         .cornerRadius(12)
-        .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
+        .padding(.horizontal)
     }
-}
 
-struct SafetyHubCardView: View {
-    let item: SafetyHubItem
-
-    var body: some View {
-        VStack {
-            Image(systemName: item.iconName)
-                .font(.system(size: 40))
-                .foregroundColor(.primary)
-                .padding(.bottom, 8)
-                .frame(width: 60, height: 60)
-
-            Text(item.title)
-                .font(.caption).bold()
+    private var createTripCard: some View {
+        VStack(spacing: 16) {
+            Text("Create your first trip by uploading flight, lodging and activity info.")
+                .font(.headline)
                 .multilineTextAlignment(.center)
+                .padding(.horizontal)
+
+            Button("Create a trip") { /* TODO */ }
+                .font(.headline)
+                .foregroundColor(.black.opacity(0.8))
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(btnYellow)
+                .cornerRadius(10)
         }
-        .frame(width: 100, height: 100)
-        .padding()
+        .padding(20)
         .background(Color.white)
         .cornerRadius(15)
         .overlay(
             RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                .stroke(style: StrokeStyle(lineWidth: 2, dash: [6]))
+                .foregroundColor(btnYellow.opacity(0.9))
         )
-        .shadow(color: .black.opacity(0.05), radius: 3, x: 0, y: 1)
+        .padding(.horizontal)
     }
-}
 
+    private var moodboardsSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("Moodboards").font(.title2).bold()
+                Spacer()
+                Button("View all") {}
+                Image(systemName: "chevron.right")
+            }
+            .padding(.horizontal)
 
-struct EmbassiesView: View {
-    let embassies: [EmbassyInfo] = [
-        EmbassyInfo(city: "Mexico City", imageName: "mexico_city_embassy", address: "Paseo de la Reforma 305\nColonia Cuauhtémoc\n06500 CDMX", phone: "(55) 5080-2000"),
-        EmbassyInfo(city: "Dominican Republic", imageName: "dominican_republic_embassy", address: "Av. República de Colombia #57\nSanto Domingo\nDominican Republic", phone: "(809) 567-7775"),
-        EmbassyInfo(city: "United Kingdom", imageName: "uk_embassy", address: "33 Nine Elms Lane\nLondon\nSW11 7US", phone: "[44] (0)20-7499-9000"),
-        EmbassyInfo(city: "Canada", imageName: "canada_embassy", address: "490 Sussex Drive\nOttawa, Ontario, K1N 1G8,\nCANADA", phone: "(613) 688-5335"),
-        EmbassyInfo(city: "Italy", imageName: "italy_embassy", address: "U.S. Embassy Rome\nVia Vittorio Veneto 121\n00187 Roma", phone: "+39 06.46741"),
-        EmbassyInfo(city: "France", imageName: "france_embassy", address: "2 avenue Gabriel\n75008 Paris, France\n\nConsular Services:\n4 avenue Gabriel\n75008 Paris, France", phone: "+33 143122222")
-    ]
-    
-    let placeholderEmbassyImageName = "building.fill"
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15) {
+                    ForEach(moodboards) { item in
+                        VStack(alignment: .leading, spacing: 8) {
+                            Image(item.imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 140, height: 180)
+                                .cornerRadius(12)
+                            Text(item.title)
+                                .font(.headline)
+                                .fontWeight(.medium)
+                        }
+                        .padding(10)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+            }
+        }
+    }
 
-    var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("US Embassies")
-                    .font(.title2).bold()
-                    .padding(.horizontal)
-                Text("Most Popular destinations")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.horizontal)
-                    .padding(.bottom, 5)
+    private var safetyHubSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("Safety Hub").font(.title2).bold()
+                Spacer()
+                Button("View all") {}
+                Image(systemName: "chevron.right")
+            }
+            .padding(.horizontal)
 
-                LazyVStack(alignment: .leading, spacing: 0) {
-                    ForEach(embassies) { embassy in
-                        EmbassyRow(embassy: embassy, placeholderImageName: placeholderEmbassyImageName)
-                        if embassy.id != embassies.last?.id {
-                            Divider().padding(.leading, 111)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(safetyItems) { item in
+                        switch item.title {
+                        case "Embassies":
+                            NavigationLink(destination: EmbassiesView()) {
+                                safetyCard(for: item)
+                            }
+                            .buttonStyle(.plain)
+
+                        case "STEP Enrollment":
+                            NavigationLink(destination: STEPEnrollmentView()) {
+                                safetyCard(for: item)
+                            }
+                            .buttonStyle(.plain)
+
+                        case "Translator":
+                            NavigationLink(destination: TranslatorView()) {
+                                safetyCard(for: item)
+                            }
+                            .buttonStyle(.plain)
+
+                        default:
+                            safetyCard(for: item)
                         }
                     }
                 }
-                
-                Button(action: {
-                    print("View more destinations tapped")
-                }) {
-                    HStack {
-                        Spacer()
-                        (Text("Don't see your destination? ")
-                            .font(.callout)
-                            .foregroundColor(Color(UIColor.label))
-                        + Text("View more")
-                            .font(.callout).bold()
-                            .foregroundColor(Color(red: 255/255, green: 135/255, blue: 0/255)))
-                        Spacer()
-                    }
-                    .padding(.vertical)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
-                }
                 .padding(.horizontal)
-                .padding(.vertical, 20)
+                .padding(.vertical, 5)
             }
-            .padding(.top)
         }
-        .navigationTitle("Embassies")
-        .navigationBarTitleDisplayMode(.inline)
-        .background(Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all))
     }
-}
 
-struct EmbassyRow: View {
-    let embassy: EmbassyInfo
-    let placeholderImageName: String
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 15) {
-            Image(uiImage: UIImage(named: embassy.imageName) ?? UIImage(systemName: placeholderImageName)!)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 80, height: 80)
-                .cornerRadius(10)
-                .clipped()
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(embassy.city)
-                    .font(.headline).bold()
-                Text(embassy.address)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("Phone: \(embassy.phone)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-            Spacer()
+    @ViewBuilder
+    private func safetyCard(for item: SafetyHubItem) -> some View {
+        VStack(spacing: 8) {
+            Image(systemName: item.iconName)
+                .font(.system(size: 32))
+                .foregroundColor(.black.opacity(0.7))
+            Text(item.title)
+                .font(.caption)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
         }
-        .padding()
+        .frame(width: 100, height: 100)
+        .background(Color.white)
+        .cornerRadius(15)
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+        )
     }
 }
 
-
-struct RoundedCorner: Shape {
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
+// MARK: — Preview
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct EmbassiesView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            EmbassiesView()
-        }
     }
 }

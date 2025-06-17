@@ -1,60 +1,57 @@
 import SwiftUI
 
 struct PermissionsPrimingView: View {
-    var onGotItTapped: () -> Void
+    var onNextTapped: () -> Void
 
     var body: some View {
         ZStack {
             Color(red: 253/255, green: 223/255, blue: 170/255)
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
 
             VStack(spacing: 20) {
-                Spacer()
+                Text("Location Services")
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .padding(.top, 40)
 
-                Image("coconutDrink")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-                    .padding(.bottom, 30)
+                ZStack {
+                    Image("blurred_app_content")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 280)
 
-                Text("Certain permissions need to be granted to experience Girls Trip in full.")
-                    .font(.system(size: 20, weight: .medium, design: .rounded))
-                    .foregroundColor(Color(red: 60/255, green: 60/255, blue: 60/255))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-
-                Text("We'll just need 3 pieces of information to get started.")
-                    .font(.system(size: 18, weight: .regular, design: .rounded))
-                    .foregroundColor(Color(red: 80/255, green: 80/255, blue: 80/255))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-
-                Spacer()
-
-                Button(action: {
-                    onGotItTapped()
-                }) {
-                    Text("Got it!")
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundColor(.black)
-                        .padding(.vertical, 15)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .cornerRadius(10) // Slightly less rounded than previous buttons
-                        .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 5)
+                    Image("location_dialog_overlay")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200)
+                        .offset(x: 90, y: -100)
+                        
                 }
-                .padding(.horizontal, 50)
-                .padding(.bottom, 50)
+                .padding(.vertical, 20)
+
+                Spacer()
+
+                Button(action: onNextTapped) {
+                    Text("Next")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 4)
+                }
+                .padding(.horizontal, 40)
+                .padding(.bottom, 40)
             }
         }
     }
 }
 
-// Preview
 struct PermissionsPrimingView_Previews: PreviewProvider {
     static var previews: some View {
-        PermissionsPrimingView(onGotItTapped: {
-            print("Preview: Got it tapped!")
-        })
+        PermissionsPrimingView {
+            print("Next tapped")
+        }
+        .previewDevice("iPhone 14")
     }
 }
